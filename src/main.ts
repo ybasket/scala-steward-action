@@ -37,7 +37,7 @@ async function run(): Promise<void> {
 
     const cacheTtl = core.getInput('cache-ttl')
 
-    await workspace.restoreWorkspaceCache(workspaceDir)
+    // await workspace.restoreWorkspaceCache(workspaceDir)
 
     const timeout = core.getInput('timeout')
 
@@ -84,7 +84,7 @@ async function run(): Promise<void> {
       githubAppArgs,
     ])
 
-    await workspace.saveWorkspaceCache(workspaceDir)
+    // await workspace.saveWorkspaceCache(workspaceDir)
   } catch (error: unknown) {
     core.setFailed(` ✕ ${(error as Error).message}`)
   }

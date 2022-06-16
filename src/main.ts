@@ -59,6 +59,10 @@ async function run(): Promise<void> {
       ? ['--github-app-id', githubAppInfo.id, '--github-app-key-file', githubAppInfo.keyFile]
       : []
 
+    const otherArgs = core.getInput('other-args')
+        ? core.getInput('other-args').split(' ')
+        : []
+
     await coursier.install('scalafmt')
     await coursier.install('scalafix')
 
@@ -82,9 +86,8 @@ async function run(): Promise<void> {
       '--do-not-fork',
       '--disable-sandbox',
       githubAppArgs,
+      otherArgs,
     ])
-
-    // await workspace.saveWorkspaceCache(workspaceDir)
   } catch (error: unknown) {
     core.setFailed(` ✕ ${(error as Error).message}`)
   }

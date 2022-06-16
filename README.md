@@ -102,15 +102,17 @@ The following inputs are available (all of them are optional):
 | <details><summary>`github-app-key`</summary><br/>The private key for the GitHub App set with `github-app-id`. This value should be extracted from a secret. This input in combination with `github-app-id` allows you to use this action as a "backend" for your own Scala Steward GitHub App.</details> | A private key | `''` |
 | <details><summary>`branches`</summary><br/>A comma-separated list of branches to update (if not provided, the repository's default branch will be updated instead). This option only has effect if updating the current repository or using the `github-repository` input. See ["Updating a custom branch"](#updating-a-custom-branch).</details>| A list of branches to update | `''` |
 | <details><summary>`repo-config`</summary><br/>The path to a [`.scala-steward.conf`](https://github.com/scala-steward-org/scala-steward/blob/master/docs/repo-specific-configuration.md) file with default values for all repos updated with this action.</details> | Path to a<br/>[`.scala-steward.conf`](https://github.com/scala-steward-org/scala-steward/blob/master/docs/repo-specific-configuration.md)<br/>default file | `.github/.scala-steward.conf` |
+| <details><summary>`other-args`</summary><br/>Other arguments to launch Scala Steward with</details> | String | `''` |
 
 ### Specify JVM version
 
 If you would like to specify a specific Java version (e.g Java 11) please add the following step before `Launch Scala Steward`:
 ```
 - name: Set up JDK 11
-  uses: actions/setup-java@v1.3.0
+  uses: actions/setup-java@v3
   with:
-    java-version: 1.11
+    java-version: 11
+    distribution: temurin
 ```
 
 ### Github Token
@@ -395,20 +397,21 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/laughedelic"><img src="https://avatars.githubusercontent.com/u/766656?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Alexey Alekhin</b></sub></a><br /><a href="https://github.com/scala-steward-org/scala-steward-action/commits?author=laughedelic" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/arashi01"><img src="https://avatars.githubusercontent.com/u/1921493?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ali Salim Rashid</b></sub></a><br /><a href="https://github.com/scala-steward-org/scala-steward-action/commits?author=arashi01" title="Code">💻</a></td>
     <td align="center"><a href="https://toniogela.dev/"><img src="https://avatars.githubusercontent.com/u/41690956?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Antonio Gelameris</b></sub></a><br /><a href="https://github.com/scala-steward-org/scala-steward-action/commits?author=TonioGela" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/armanbilge"><img src="https://avatars.githubusercontent.com/u/3119428?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Arman Bilge</b></sub></a><br /><a href="https://github.com/scala-steward-org/scala-steward-action/issues?q=author%3Aarmanbilge" title="Bug reports">🐛</a> <a href="https://github.com/scala-steward-org/scala-steward-action/commits?author=armanbilge" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/EwoutH"><img src="https://avatars.githubusercontent.com/u/15776622?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ewout ter Hoeven</b></sub></a><br /><a href="https://github.com/scala-steward-org/scala-steward-action/commits?author=EwoutH" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/francisdb"><img src="https://avatars.githubusercontent.com/u/161305?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Francis De Brabandere</b></sub></a><br /><a href="https://github.com/scala-steward-org/scala-steward-action/issues?q=author%3Afrancisdb" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="https://github.com/fthomas"><img src="https://avatars.githubusercontent.com/u/141252?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Frank Thomas</b></sub></a><br /><a href="https://github.com/scala-steward-org/scala-steward-action/commits?author=fthomas" title="Code">💻</a></td>
   </tr>
   <tr>
+    <td align="center"><a href="https://github.com/fthomas"><img src="https://avatars.githubusercontent.com/u/141252?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Frank Thomas</b></sub></a><br /><a href="https://github.com/scala-steward-org/scala-steward-action/commits?author=fthomas" title="Code">💻</a></td>
     <td align="center"><a href="https://infernus.org/"><img src="https://avatars.githubusercontent.com/u/1030482?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jamie Shiell</b></sub></a><br /><a href="https://github.com/scala-steward-org/scala-steward-action/issues?q=author%3Ajshiell" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/jeffboutotte"><img src="https://avatars.githubusercontent.com/u/6991403?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jeff Boutotte</b></sub></a><br /><a href="https://github.com/scala-steward-org/scala-steward-action/commits?author=jeffboutotte" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/marcelocarlos"><img src="https://avatars.githubusercontent.com/u/16080771?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Marcelo Carlos</b></sub></a><br /><a href="https://github.com/scala-steward-org/scala-steward-action/issues?q=author%3Amarcelocarlos" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://www.tovbin.com/"><img src="https://avatars.githubusercontent.com/u/629845?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Matthew Tovbin</b></sub></a><br /><a href="https://github.com/scala-steward-org/scala-steward-action/commits?author=tovbinm" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/michele-pinto-kensu"><img src="https://avatars.githubusercontent.com/u/69146696?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Michele Pinto</b></sub></a><br /><a href="#ideas-michele-pinto-kensu" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/milanvdm"><img src="https://avatars.githubusercontent.com/u/5628925?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Milan van der Meer</b></sub></a><br /><a href="https://github.com/scala-steward-org/scala-steward-action/issues?q=author%3Amilanvdm" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="http://ca.linkedin.com/in/pboldyrev/"><img src="https://avatars.githubusercontent.com/u/627562?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Pavel Boldyrev</b></sub></a><br /><a href="https://github.com/scala-steward-org/scala-steward-action/commits?author=bpg" title="Code">💻</a></td>
   </tr>
   <tr>
+    <td align="center"><a href="http://ca.linkedin.com/in/pboldyrev/"><img src="https://avatars.githubusercontent.com/u/627562?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Pavel Boldyrev</b></sub></a><br /><a href="https://github.com/scala-steward-org/scala-steward-action/commits?author=bpg" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/spliakos"><img src="https://avatars.githubusercontent.com/u/15560159?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Stefanos Pliakos</b></sub></a><br /><a href="#ideas-spliakos" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://www.exoego.net/"><img src="https://avatars.githubusercontent.com/u/127635?v=4?s=100" width="100px;" alt=""/><br /><sub><b>TATSUNO Yasuhiro</b></sub></a><br /><a href="https://github.com/scala-steward-org/scala-steward-action/commits?author=exoego" title="Code">💻</a></td>
     <td align="center"><a href="https://www.nomadblacky.dev/"><img src="https://avatars.githubusercontent.com/u/3215961?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Takumi Kadowaki</b></sub></a><br /><a href="https://github.com/scala-steward-org/scala-steward-action/commits?author=NomadBlacky" title="Code">💻</a></td>
